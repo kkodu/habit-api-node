@@ -57,3 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
+# ide and editor
+.idea/
+.vscode/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/config.yml
+!.elasticbeanstalk/*.global.yml
