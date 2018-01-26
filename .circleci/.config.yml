@@ -17,6 +17,9 @@ jobs:
     steps:
       - checkout
 
+      # update npm
+      - run: sudo npm install -g npm@latest
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -25,7 +28,7 @@ jobs:
           - v1-dependencies-
 
       # update packages
-      - run: yarn install
+      - run: sudo npm install
 
       - save_cache:
           paths:
@@ -40,7 +43,7 @@ jobs:
       - checkout
       - run:
         name: Test
-        command: yarn test
+        command: npm test
 
   deploy:
     docker:
@@ -64,9 +67,11 @@ workflows:
   build-deploy:
     jobs:
       - build
+      # - test
       - deploy:
           requires:
             - build
+            # - test
           filters:
             branches:
               only: master
