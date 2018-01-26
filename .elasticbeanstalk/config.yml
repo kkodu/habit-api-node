@@ -1,6 +1,8 @@
 branch-defaults:
   develop:
     environment: habitApiNode-env
+  master:
+    environment: habitApiNode-env
 environment-defaults:
   habitApiNode-env:
     branch: null
